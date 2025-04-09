@@ -1,4 +1,4 @@
 require("config.remap")
 require("config.lazy")
-print("Hello from Ata")
+print("Hello from config")
 
