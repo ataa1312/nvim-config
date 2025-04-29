@@ -35,3 +35,8 @@ vim.opt.foldlevelstart = 99
 
 -- NOTE: Spellcheck options
 vim.opt.spell = true
+--
+-- NOTE: Visualbell options 
+vim.opt.visualbell = true
+
+
