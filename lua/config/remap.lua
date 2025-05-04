@@ -31,33 +31,35 @@ vim.keymap.set("n", "<leader><leader>",
                 {desc="Source This File"})
 
 
--- NOTE: FZF-LUA General Keymaps
+-- NOTE: FZF-Lua File/Tab Finder
 vim.keymap.set({"n", "v"}, "<leader>ff",
-               function() require("fzf-lua").files() end)
-
+  function() require("fzf-lua").files() end,
+  { desc = "FZF: Find Files" })
 vim.keymap.set({"n", "v"}, "<leader>ft",
-               function() require("fzf-lua").tabs() end)
-               
--- NOTE: FZF-LUA Grep Keymaps
-vim.keymap.set({"n", "v"}, "<leader>fg",
-               function() require("fzf-lua").grep() end)
+  function() require("fzf-lua").tabs() end,
+  { desc = "FZF: List Tabs" })
 
-vim.keymap.set({"n", "v"}, "<leader>fgl",
-               function() require("fzf-lua").grep_last() end)
+-- NOTE:FZF-Lua Grep
+vim.keymap.set({"n", "v"}, "<leader>fgr",
+  function() require("fzf-lua").grep() end,
+  { desc = "FZF: Live Grep" })
+vim.keymap.set({"n", "v"}, "<leader>fgrl",
+  function() require("fzf-lua").grep_last() end,
+  { desc = "FZF: Resume Last Grep" })
 
--- NOTE: FZF-LUA Git Keymaps
+-- NOTE: FZF-Lua Git
 vim.keymap.set({"n", "v"}, "<leader>fgf",
-               function() require("fzf-lua").git_files() end)
-
+  function() require("fzf-lua").git_files() end,
+  { desc = "FZF: Git Files" })
 vim.keymap.set({"n", "v"}, "<leader>fgs",
-               function() require("fzf-lua").git_status() end)
-
+  function() require("fzf-lua").git_status() end,
+  { desc = "FZF: Git Status" })
 vim.keymap.set({"n", "v"}, "<leader>fgc",
-               function() require("fzf-lua").git_commits() end)
-
+  function() require("fzf-lua").git_commits() end,
+  { desc = "FZF: Git Commits" })
 vim.keymap.set({"n", "v"}, "<leader>fgbc",
-               function() require("fzf-lua").git_bcommits() end)
-
+  function() require("fzf-lua").git_bcommits() end,
+  { desc = "FZF: Buffer Commits" })
 vim.keymap.set({"n", "v"}, "<leader>fgb",
-               function() require("fzf-lua").git_branches() end)
-
+  function() require("fzf-lua").git_branches() end,
+  { desc = "FZF: Git Branches" })
