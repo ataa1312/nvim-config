@@ -20,6 +20,10 @@ vim.opt.scrolloff = 25
 
 -- NOTE: Wrapping options 
 vim.opt.wrap = true
+vim.opt.linebreak = true   -- only wrap at word boundaries
+vim.opt.breakindent = true -- indent wrapped lines
+vim.opt.colorcolumn = "80"
+vim.cmd("highlight ColorColumn guibg=#2e2e2e")
 
 -- NOTE: Visual Mode options 
 vim.opt.virtualedit = "block"
@@ -39,4 +43,5 @@ vim.opt.spell = true
 -- NOTE: Visualbell options 
 vim.opt.visualbell = true
 
-
+-- NOTE: Mouse options
+-- vim.opt.mouse = ""
