@@ -4,7 +4,8 @@ return {
     opts = {
         formatters_by_ft = {
             python = { "isort", "black" },
-            lua = { "stylua" }
-        }
+            lua = { "stylua" },
+            markdown = { "prettier" }
+        },
     },
 }
