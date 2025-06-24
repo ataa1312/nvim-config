@@ -7,10 +7,10 @@ vim.g.maplocalleader = "\\"
 -- NOTE: VIM Keymaps
 vim.keymap.set("n", "<leader>E", vim.cmd.Ex,
     { desc = "Open File Explorer" })
-vim.keymap.set("n", "<leader>o", "o<Esc>",
-    { desc = "Insert a New Line Below" })
-vim.keymap.set("n", "<leader>O", "O<Esc>",
-    { desc = "Insert a New Line Above" })
+-- vim.keymap.set("n", "<leader>o", "o<Esc>",
+--     { desc = "Insert a New Line Below" })
+-- vim.keymap.set("n", "<leader>O", "O<Esc>",
+--     { desc = "Insert a New Line Above" })
 
 -- NOTE: Traversal Keymaps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -31,16 +31,19 @@ vim.keymap.set("n", "<leader><leader>",
     { desc = "Source This File" })
 
 
--- NOTE: FZF-Lua File/Tab Finder
+-- NOTE: FZF-Lua File/Tab/Buffers Finder
 vim.keymap.set({ "n", "v" }, "<leader>ff",
     function() require("fzf-lua").files() end,
     { desc = "FZF: Find Files" })
 vim.keymap.set({ "n", "v" }, "<leader>ft",
     function() require("fzf-lua").tabs() end,
     { desc = "FZF: List Tabs" })
+vim.keymap.set({ "n", "v" }, "<leader>fb",
+    function() require("fzf-lua").buffers() end,
+    { desc = "FZF: List Buffers" })
 
 -- NOTE: FZF-Lua Grep
-vim.keymap.set({ "n", "v" }, "<leader>fgr",
+vim.keymap.set({ "n", "v" }, "<leader>fgre",
     function() require("fzf-lua").grep() end,
     { desc = "FZF: Live Grep" })
 vim.keymap.set({ "n", "v" }, "<leader>fgrl",
