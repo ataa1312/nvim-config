@@ -39,9 +39,16 @@ vim.opt.foldlevelstart = 99
 
 -- NOTE: Spellcheck options
 vim.opt.spell = true
---
+
 -- NOTE: Visualbell options 
 vim.opt.visualbell = true
 
 -- NOTE: Mouse options
 -- vim.opt.mouse = ""
+
+-- NOTE: Diagnostics options
+vim.diagnostic.config({
+    virtual_text = false,
+    virtual_lines = true,
+})
+
