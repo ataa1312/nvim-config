@@ -27,7 +27,7 @@ return {
             ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
         },
         appearance = { nerd_font_variant = "mono" },
-        completion = { documentation = { auto_show = false } },
+        completion = { documentation = { auto_show = true } },
         sources = {
             default = { "lazydev", "lsp", "path", "snippets" }, -- "buffer"
             providers = {
