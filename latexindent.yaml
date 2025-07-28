@@ -1,0 +1,39 @@
+defaultIndent: "  "
+removeTrailingWhitespace: 1
+
+logFilePreferences:
+  showEveryYamlRead: 1
+  showAmalgamatedSettings: 1
+  showDecorationStartCodeBlockTrace: 1
+  showDecorationFinishCodeBlockTrace: 1
+  endLogFileWith: '--------------------'
+
+indentAfterItems:
+  itemize: 1
+  itemize*: 1
+  enumerate: 1
+  enumerate*: 1
+  description: 1
+  description*: 1
+  list: 1
+
+modifyLineBreaks:
+  preserveBlankLines: 1
+  condenseMultipleBlankLinesInto: 1
+  textWrapOptions:
+    columns: 80
+    when: after
+  environments:
+    equation:
+      BeginStartsOnOwnLine: 4
+      EndFinishesWithLineBreak: 4
+    enumerate:
+      BeginStartsOnOwnLine: 4
+      BodyStartsOnOwnLine: 1
+      EndStartsOnOwnLine: 1
+      EndFinishesWithLineBreak: 4
+    itemize:
+      BeginStartsOnOwnLine: 4
+      BodyStartsOnOwnLine: 1
+      EndStartsOnOwnLine: 1
+      EndFinishesWithLineBreak: 4
