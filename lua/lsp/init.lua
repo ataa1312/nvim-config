@@ -1,4 +1,4 @@
 require("lsp.lua-language-server")
-require("lsp.pyright")
+require("lsp.basedpyright")
 require("lsp.clangd")
 require("lsp.marksman")
