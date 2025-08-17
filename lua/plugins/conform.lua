@@ -18,6 +18,21 @@ return {
             tex = { "latexindent", "tex-fmt" },
         },
         formatters = {
+            stylua = {
+                prepend_args = {
+                    "--column-width",
+                    "79",
+                    "--indent-type",
+                    "Spaces",
+                    "--indent-width",
+                    "4",
+                    "--line-endings",
+                    "UNIX",
+                    "--quote-style",
+                    "AutoPreferDouble",
+                },
+                args = { "-" }
+            },
             latexindent = {
                 prepend_args = {
                     "--modifylinebreaks",
