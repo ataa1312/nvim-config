@@ -1,6 +1,15 @@
 return {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
+    keys = {
+        {
+            "<leader>gw",
+            function()
+                require("conform").format({ lsp_fallback = true, async = false, timeout_ms = 1000 })
+            end,
+            desc = "Conform: Format Current File",
+        },
+    },
     opts = {
         formatters_by_ft = {
             python = { "isort", "black" },
