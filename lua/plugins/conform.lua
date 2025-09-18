@@ -5,7 +5,11 @@ return {
         {
             "<leader>gw",
             function()
-                require("conform").format({ lsp_fallback = true, async = false, timeout_ms = 1000 })
+                require("conform").format({
+                    lsp_fallback = false,
+                    async = false,
+                    timeout_ms = 1000,
+                })
             end,
             desc = "Conform: Format Current File",
         },
@@ -31,7 +35,7 @@ return {
                     "--quote-style",
                     "AutoPreferDouble",
                 },
-                args = { "-" }
+                args = { "-" },
             },
             latexindent = {
                 prepend_args = {
@@ -43,13 +47,15 @@ return {
             },
             tex_fmt = {
                 prepend_args = {
-                    "--config", "/Users/ata/.config/nvim/tex-fmt.toml",
+                    "--config",
+                    "/Users/ata/.config/nvim/tex-fmt.toml",
+                    "--nowrap",
                 },
             },
             prettier = {
                 append_args = {
                     "--print-width",
-                    "80",
+                    "88",
                     "--prose-wrap",
                     "always",
                 },
