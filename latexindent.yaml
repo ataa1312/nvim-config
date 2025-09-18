@@ -23,8 +23,10 @@ modifyLineBreaks:
   preserveBlankLines: 1
   condenseMultipleBlankLinesInto: 1
   textWrapOptions:
-    columns: 80
+    columns: 88
     when: after
+    blocksFollow:
+      \\pause: 1 
   environments:
     equation*:
       BeginStartsOnOwnLine: 4
