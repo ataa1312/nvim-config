@@ -1,1 +1,15 @@
-indent.log
+# dotfiles
+.nvim-backup/
+
+# Unwanted configs
+fontconfig/    
+github-copilot/
+iterm2/
+nvimbackup/
+wandb/
+zed/  
+
+tmux/plugins
+
+**/indent.log
+
