@@ -53,7 +53,7 @@ vim.diagnostic.config({
 
 -- NOTE: Backup options
 local path = vim.fn.stdpath("config")
-local backup_path = path .. "/.backup"
+local backup_path = path .. "/../.nvim-backup"
 
 if not vim.fn.isdirectory(backup_path) then
     vim.fn.mkdir(backup_path)
