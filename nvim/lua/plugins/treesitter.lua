@@ -4,7 +4,11 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
     opts = {
-        highlight = { enable = true },
+        highlight = {
+            enable = true,
+            disable = { "latex" },
+            additional_vim_regex_highlighting = { "latex", "markdown" },
+        },
         indent = { enable = true },
         auto_install = true,
         sync_install = true,
@@ -49,20 +53,48 @@ return {
                 enable = true,
                 lookahead = true,
                 keymaps = {
-                    ["af"] = { query = "@function.outer", desc = "Select outer part of a function region" },
-                    ["if"] = { query = "@function.inner", desc = "Select inner part of a function region" },
-                    ["ac"] = { query = "@class.outer", desc = "Select outer part of a class region" },
-                    ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-                    ["ai"] = { query = "@conditional.outer", desc = "Select outer part of a conditional region" },
-                    ["ii"] = { query = "@conditional.inner", desc = "Select inner part of a conditional region" },
-                    ["al"] = { query = "@loop.outer", desc = "Select outer part of a loop region" },
-                    ["il"] = { query = "@loop.inner", desc = "Select inner part of a loop region" },
-                    ["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
+                    ["af"] = {
+                        query = "@function.outer",
+                        desc = "Select outer part of a function region",
+                    },
+                    ["if"] = {
+                        query = "@function.inner",
+                        desc = "Select inner part of a function region",
+                    },
+                    ["ac"] = {
+                        query = "@class.outer",
+                        desc = "Select outer part of a class region",
+                    },
+                    ["ic"] = {
+                        query = "@class.inner",
+                        desc = "Select inner part of a class region",
+                    },
+                    ["ai"] = {
+                        query = "@conditional.outer",
+                        desc = "Select outer part of a conditional region",
+                    },
+                    ["ii"] = {
+                        query = "@conditional.inner",
+                        desc = "Select inner part of a conditional region",
+                    },
+                    ["al"] = {
+                        query = "@loop.outer",
+                        desc = "Select outer part of a loop region",
+                    },
+                    ["il"] = {
+                        query = "@loop.inner",
+                        desc = "Select inner part of a loop region",
+                    },
+                    ["as"] = {
+                        query = "@local.scope",
+                        query_group = "locals",
+                        desc = "Select language scope",
+                    },
                 },
                 selection_modes = {
-                    ['@parameter.outer'] = 'v', -- charwise
-                    ['@function.outer'] = 'V', -- linewise
-                    ['@class.outer'] = '<c-v>', -- blockwise
+                    ["@parameter.outer"] = "v", -- charwise
+                    ["@function.outer"] = "V", -- linewise
+                    ["@class.outer"] = "<c-v>", -- blockwise
                 },
                 include_surrounding_whitespace = true,
             },
