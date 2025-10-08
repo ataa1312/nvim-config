@@ -36,7 +36,7 @@ return {
         },
         {
             "<leader>sr",
-            "<cmd>FzfLua grep_last<cr>",
+            "<cmd>FzfLua grep resume=true<cr>",
             desc = "FZF: Search Resume",
         },
         {
