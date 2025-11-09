@@ -8,6 +8,9 @@ logFilePreferences:
   showDecorationFinishCodeBlockTrace: 1
   endLogFileWith: '--------------------'
 
+# verbatimEnvironments:
+#   algorithm: 1
+
 indentAfterItems:
   itemize: 1
   itemize*: 1
@@ -24,9 +27,15 @@ modifyLineBreaks:
   condenseMultipleBlankLinesInto: 1
   textWrapOptions:
     columns: 88
+    comments:
+      wrap: 1
+      inheritLeadingSpace: 1
     when: after
+    multipleSpacesToSingle: 1
     blocksFollow:
-      \\pause: 1 
+      other: \\\]|\\item(?:\h|\[)|\\pause|\\Indp|\\Indm|\\For
+    blocksBeginWith:
+      other: \\cgls|\\textbf|\\textsc
   environments:
     equation*:
       BeginStartsOnOwnLine: 4
