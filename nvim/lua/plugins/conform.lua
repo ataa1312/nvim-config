@@ -19,7 +19,8 @@ return {
             python = { "isort", "black" },
             lua = { "stylua" },
             markdown = { "prettier" },
-            tex = { "latexindent", "tex-fmt" },
+            tex = { "latexindent" }, -- "tex-fmt"
+            bib = { "bibtex-tidy" },
         },
         formatters = {
             stylua = {
@@ -59,6 +60,20 @@ return {
                     "--prose-wrap",
                     "always",
                 },
+            },
+            ["bibtex-tidy"] = {
+                prepend_args = {
+                    "--omit=abstract,publisher,location,doi", --keywords
+                    "--curly",
+                    "--space=4",
+                    "--align=14",
+                    "--blank-lines",
+                    "--duplicates",
+                    "--drop-all-caps",
+                    "--sort-fields",
+                    "--wrap=88",
+                },
+                args = { "-" },
             },
         },
     },
