@@ -45,7 +45,7 @@ return {
                 },
                 args = { "-" },
             },
-            tex_fmt = {
+            ["tex-fmt"] = {
                 prepend_args = {
                     "--config",
                     "/Users/ata/.config/nvim/tex-fmt.toml",
