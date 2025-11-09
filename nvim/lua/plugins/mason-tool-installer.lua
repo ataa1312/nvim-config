@@ -17,6 +17,7 @@ return {
             { "latexindent" },
             { "tex-fmt" },
             { "prettier" },
+            { "bibtex-tidy" },
         },
     },
 }
