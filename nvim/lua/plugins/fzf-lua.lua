@@ -15,10 +15,9 @@ return {
         { "<leader>sr", "<cmd>FzfLua grep resume=true<cr>", desc = "FZF: Grep Resume" },
         { "<leader>sv", "<cmd>FzfLua grep_visual<cr>", desc = "FZF: Grep Visual" },
 
-        { "<leader>gf", "<cmd>FzfLua git_files<cr>", desc = "FZF: Git Files" },
-        { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "FZF: Git Status" },
-        { "<leader>gc", "<cmd>FzfLua git_commits<cr>", desc = "FZF: Git Commits" },
-        { "<leader>gb", "<cmd>FzfLua git_branches<cr>", desc = "FZF: Git Branches" },
+        { "<leader>hh", "<cmd>FzfLua helptags<cr>", desc = "FZF: Help tags" },
+
+        { "<leader>qq", "<cmd>FzfLua quickfix<cr>", desc = "FZF: Quickfix" },
 
         { "<leader>lr", "<cmd>FzfLua lsp_references<cr>", desc = "FZF: Lsp Refs" },
         { "<leader>ld", "<cmd>FzfLua lsp_definitions<cr>", desc = "FZF: Lsp Defs" },
