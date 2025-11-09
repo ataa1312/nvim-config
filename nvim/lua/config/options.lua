@@ -22,7 +22,7 @@ vim.opt.scrolloff = 10
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "88"
 vim.cmd("highlight ColorColumn guibg=#2e2e2e")
 
 -- NOTE: Visual Mode options
