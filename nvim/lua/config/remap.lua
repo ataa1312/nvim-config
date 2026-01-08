@@ -5,15 +5,17 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- NOTE: VIM Keymaps
-vim.keymap.set("n", "<leader>E", vim.cmd.Ex,
-    { desc = "Open File Explorer" })
-vim.keymap.set("n", "<leader>X", vim.cmd.bd,
-    { desc = "Delete Current Buffer" })
+vim.keymap.set("n", "<leader>E", vim.cmd.Ex, { desc = "Open File Explorer" })
+vim.keymap.set("n", "<leader>X", vim.cmd.bd, { desc = "Delete Current Buffer" })
 
 -- vim.keymap.set("n", "<leader>o", "o<Esc>",
 --     { desc = "Insert a New Line Below" })
 -- vim.keymap.set("n", "<leader>O", "O<Esc>",
 --     { desc = "Insert a New Line Above" })
+
+-- NOTE: LSP Keymaps
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition"})
+
 
 -- NOTE: Traversal Keymaps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
