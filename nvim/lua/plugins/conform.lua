@@ -21,6 +21,8 @@ return {
             markdown = { "prettier" },
             tex = { "latexindent" }, -- "tex-fmt"
             bib = { "bibtex-tidy" },
+            yaml = { "yq" },
+            yml = { "yq" },
         },
         formatters = {
             stylua = {
@@ -74,6 +76,16 @@ return {
                     "--wrap=88",
                 },
                 args = { "-" },
+            },
+            yq = {
+                command = "yq",
+                args = {
+                    "eval",
+                    "--indent",
+                    "2",
+                    "--no-colors",
+                },
+                stdin = true,
             },
         },
     },

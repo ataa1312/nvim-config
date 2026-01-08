@@ -17,6 +17,7 @@ return {
             { "prettier" },
             { "bibtex-tidy" },
             { "ruff" },
+            { "yq" },
             -- { "isort" },
             -- { "black" },
         },
