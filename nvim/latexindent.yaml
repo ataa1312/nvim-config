@@ -33,9 +33,30 @@ modifyLineBreaks:
     when: after
     multipleSpacesToSingle: 1
     blocksFollow:
-      other: \\\]|\\item(?:\h|\[)|\\pause|\\Indp|\\Indm|\\For
+      other: |-
+        (?x)
+        \\\]
+        |
+        \\item(?:\h|\[)?\s+(?:\\textcolor\{)?
+        |
+        \\pause
+        |
+        \\Indp
+        |
+        \\Indm
+        |
+        \\For
+        |
+        \\begin\{figure\}
+        |
+        \\end\{figure\}
+        |
+        \\begin\{(?:assumption|corollary|example|column)\}(?:\s+\[[^\]]+\])?(?:\s*\\label\{[^}]+\})?
     blocksBeginWith:
-      other: \\cgls|\\textbf|\\textsc
+      other: \\cgls|\\textbf|\\textsc|\\emph|\\caption\h*(?:\[\])?\h*\{ 
+    # blocksEndBefore:
+    #   other: 
+
   environments:
     equation*:
       BeginStartsOnOwnLine: 4
@@ -62,3 +83,55 @@ modifyLineBreaks:
       BodyStartsOnOwnLine: 1
       EndStartsOnOwnLine: 1
       EndFinishesWithLineBreak: 4
+    assumption:
+      BeginStartsOnOwnLine: 4
+      # BodyStartsOnOwnLine: 1
+      EndStartsOnOwnLine: 1
+      EndFinishesWithLineBreak: 4
+    corollary:
+      BeginStartsOnOwnLine: 4
+      # BodyStartsOnOwnLine: 1
+      EndStartsOnOwnLine: 1
+      EndFinishesWithLineBreak: 4
+
+specialBeginEnd:
+    ForStatement:
+        begin: \\For\{[^}]+?\}
+        end: \\EndFor
+    FORStatement:
+        begin: \\FOR\{[^}]+?\}
+        end: \\ENDFOR
+    WhileStatement:
+        begin: \\While\{[^}]+?\}
+        end: \\EndWhile
+    WHILEStatement:
+        begin: \\WHILE\{[^}]+?\}
+        end: \\ENDWHILE
+    ForAllStatement:
+        begin: \\ForAll\{[^}]+?\}
+        end: \\EndFor
+    LoopStatement:
+        begin: \\Loop
+        end: \\EndLoop
+    RepeatStatement:
+        begin: \\Repeat
+        end: \\Until\{[^}]+?\}
+    ProcedureStatement:
+        begin: \\Procedure\{[^}]+?\}\{[^}]+?\}
+        end: \\EndProcedure
+    FunctionStatement:
+        begin: \\Function\{[^}]+?\}\{[^}]+?\}
+        end: \\EndFunction
+    IfStatement:
+        begin: \\If\{[^}]+?\}
+        middle:
+         - \\Else
+         - \\ElsIf\{[^}]+?\}
+        end: \\EndIf
+    IFStatement:
+        begin: \\IF\{[^}]+?\}
+        middle:
+         - \\ELSE
+         - \\ELSIF\{[^}]+?\}
+        end: \\ENDIF
+    specialBeforeCommand: 1
