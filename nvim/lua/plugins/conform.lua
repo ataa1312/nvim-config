@@ -16,7 +16,7 @@ return {
     },
     opts = {
         formatters_by_ft = {
-            python = { "isort", "black" },
+            python = { "ruff_fix", "ruff_format", "ruff_organize_imports" }, -- "isort", "black"
             lua = { "stylua" },
             markdown = { "prettier" },
             tex = { "latexindent" }, -- "tex-fmt"

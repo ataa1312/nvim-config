@@ -10,14 +10,15 @@ return {
             { "rust-analyzer" },
 
             -- NOTE: Formatters
-            { "isort" },
-            { "black" },
             { "stylua" },
             { "marksman" },
             { "latexindent" },
             { "tex-fmt" },
             { "prettier" },
             { "bibtex-tidy" },
+            { "ruff" },
+            -- { "isort" },
+            -- { "black" },
         },
     },
 }
