@@ -45,12 +45,6 @@ vim.opt.visualbell = true
 -- NOTE: Mouse options
 -- vim.opt.mouse = ""
 
--- NOTE: Diagnostics options
-vim.diagnostic.config({
-    virtual_text = false,
-    virtual_lines = true,
-})
-
 -- NOTE: Backup options
 local path = vim.fn.stdpath("config")
 local backup_path = path .. "/../.nvim-backup"
