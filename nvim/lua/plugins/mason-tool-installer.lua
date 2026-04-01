@@ -18,6 +18,7 @@ return {
             { "bibtex-tidy" },
             { "ruff" },
             { "yq" },
+            { "clang-format" },
             -- { "isort" },
             -- { "black" },
         },

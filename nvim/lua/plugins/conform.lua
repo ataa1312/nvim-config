@@ -23,6 +23,7 @@ return {
             bib = { "bibtex-tidy" },
             yaml = { "yq" },
             yml = { "yq" },
+            c = { "clang-format" },
         },
         formatters = {
             stylua = {
@@ -86,6 +87,11 @@ return {
                     "--no-colors",
                 },
                 stdin = true,
+            },
+            ["clang-format"] = {
+                prepend_args = {
+                    "-style={BasedOnStyle: LLVM, IndentWidth: 4}",
+                },
             },
         },
     },
