@@ -21,6 +21,9 @@ return {
             { "clang-format" },
             -- { "isort" },
             -- { "black" },
+
+            -- NOTE Treesitter
+            { "tree-sitter-cli" },
         },
     },
 }

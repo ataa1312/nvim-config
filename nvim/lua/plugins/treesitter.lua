@@ -1,37 +1,39 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
+    event = { "BufReadPre", "BufNewFile" },
     build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile" },
-    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-    opts = {
-        highlight = {
-            enable = true,
-            disable = { "latex" },
-            additional_vim_regex_highlighting = { "latex", "markdown" },
-        },
-        indent = { enable = true },
-        auto_install = true,
-        sync_install = true,
-        ensure_installed = {
+    dependencies = {
+        "windwp/nvim-ts-autotag",
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "MeanderingProgrammer/treesitter-modules.nvim",
+    },
+    config = function()
+        vim.treesitter.language.register("c_sharp", { "csharp", "c_sharp" })
+
+        local languages = {
             "bash",
             "c",
-            "cpp",
+            "css",
             "diff",
+            "dockerfile",
+            "gitignore",
+            "graphql",
             "html",
             "javascript",
             "jsdoc",
             "json",
-            "jsonc",
-            "latex",
             "lua",
             "luadoc",
             "luap",
             "markdown",
             "markdown_inline",
+            "nu",
+            "printf",
             "python",
             "query",
             "regex",
+            "sql",
             "toml",
             "tsx",
             "typescript",
@@ -39,70 +41,53 @@ return {
             "vimdoc",
             "xml",
             "yaml",
-        },
-        incremental_selection = {
-            enable = true,
-            keymaps = {
-                init_selection = "<leader>sn",
-                node_incremental = "<leader>sn",
-                node_decremental = "<leader>sN",
-                scope_incremental = false,
-            },
-        },
-        textobjects = {
-            select = {
-                enable = true,
-                lookahead = true,
-                keymaps = {
-                    ["af"] = {
-                        query = "@function.outer",
-                        desc = "Select outer part of a function region",
-                    },
-                    ["if"] = {
-                        query = "@function.inner",
-                        desc = "Select inner part of a function region",
-                    },
-                    ["ac"] = {
-                        query = "@class.outer",
-                        desc = "Select outer part of a class region",
-                    },
-                    ["ic"] = {
-                        query = "@class.inner",
-                        desc = "Select inner part of a class region",
-                    },
-                    ["ai"] = {
-                        query = "@conditional.outer",
-                        desc = "Select outer part of a conditional region",
-                    },
-                    ["ii"] = {
-                        query = "@conditional.inner",
-                        desc = "Select inner part of a conditional region",
-                    },
-                    ["al"] = {
-                        query = "@loop.outer",
-                        desc = "Select outer part of a loop region",
-                    },
-                    ["il"] = {
-                        query = "@loop.inner",
-                        desc = "Select inner part of a loop region",
-                    },
-                    ["as"] = {
-                        query = "@local.scope",
-                        query_group = "locals",
-                        desc = "Select language scope",
-                    },
-                },
-                selection_modes = {
-                    ["@parameter.outer"] = "v", -- charwise
-                    ["@function.outer"] = "V", -- linewise
-                    ["@class.outer"] = "<c-v>", -- blockwise
-                },
-                include_surrounding_whitespace = true,
-            },
-        },
-    },
+        }
 
-    config = function(_, opts)
-        require("nvim-treesitter.configs").setup(opts)
+        -- Covers ensure_installed + highlight + indent + fold + incremental selection
+        local ts = require("treesitter-modules")
+        ts.setup({
+            ensure_installed = languages,
+            ignore_install = {},
+            sync_install = false,
+            auto_install = false,
+
+            highlight = {
+                enable = true,
+                disable = { "latex" },
+                additional_vim_regex_highlighting = { "latex", "markdown" },
+            },
+            indent = {
+                enable = true,
+            },
+            fold = {
+                enable = true,
+            },
+            incremental_selection = {
+                enable = true,
+                keymaps = {
+                    init_selection = "gnn",
+                    node_incremental = "grn",
+                    scope_incremental = "grc",
+                    node_decremental = "grm",
+                },
+            },
+        })
+
+        -- Fold settings
+        vim.opt.foldmethod = "expr"
+        vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+        -- autotag
+        require("nvim-ts-autotag").setup()
+
+        -- textobjects plugin now uses its own setup + keymaps
+        require("nvim-treesitter-textobjects").setup({
+            move = {
+                set_jumps = false,
+            },
+            select = {
+                lookahead = true,
+            },
+        })
     end,
 }
