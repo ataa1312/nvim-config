@@ -51,7 +51,7 @@ modifyLineBreaks:
         |
         \\end\{figure\}
         |
-        \\begin\{(?:assumption|corollary|example|column|attribution)\}(?:\s+\[[^\]]+\])?(?:\s*\\label\{[^}]+\})?
+        \\begin\{(?:assumption|corollary|example|column|attribution|abstract)\}(?:\s+\[[^\]]+\])?(?:\s*\\label\{[^}]+\})?
     blocksBeginWith:
       other: \$|\\cgls|\\acrlong|\\textbf|\\mathbf|\\textsc|\\emph|\\caption\h*(?:\[[^\]]*\])?\h*\{|\\cref
     # blocksEndBefore:
