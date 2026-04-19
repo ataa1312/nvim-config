@@ -1,5 +1,6 @@
 vim.g.theme = "tokyonight-moon"
 require("config")
+utils = require("utils")
 
 vim.lsp.config("*", {
     capabilities = {
