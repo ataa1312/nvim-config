@@ -1,0 +1,38 @@
+vim.pack.add({
+    {
+        src = utils.gh_url("saghen/blink.cmp"),
+        name = "blink",
+        version = vim.version.range("1.*"),
+    },
+})
+
+require("blink.cmp").setup({
+    keymap = {
+        preset = "none",
+        ["<C-h>"] = { "show", "show_documentation", "hide_documentation" },
+        ["<C-e>"] = { "hide" },
+        ["<C-y>"] = { "select_and_accept" },
+        ["<C-n>"] = { "cancel" },
+        ["<C-k>"] = { "select_prev", "fallback_to_mappings" },
+        ["<C-j>"] = { "select_next", "fallback_to_mappings" },
+        ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+        ["<Tab>"] = { "snippet_forward", "fallback" },
+        ["<S-Tab>"] = { "snippet_backward", "fallback" },
+        ["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+    },
+    appearance = { nerd_font_variant = "mono" },
+    completion = { documentation = { auto_show = true } },
+    sources = {
+        default = { "lazydev", "lsp", "path", "snippets" },
+        providers = {
+            lazydev = {
+                name = "LazyDev",
+                module = "lazydev.integrations.blink",
+                score_offset = 100,
+            },
+        },
+    },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+    signature = { enabled = true },
+})
