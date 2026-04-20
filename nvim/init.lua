@@ -13,5 +13,7 @@ vim.lsp.config("*", {
     root_markers = { ".git" },
 })
 
+-- INFO: Lsps
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("basedpyright")
+vim.lsp.enable("bashls")

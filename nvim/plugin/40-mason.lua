@@ -15,6 +15,7 @@ require("mason-tool-installer").setup({
         { "clangd" },
         { "texlab" },
         { "rust-analyzer" },
+        { "bash-language-server" },
 
         -- NOTE: Formatters
         { "stylua" },
@@ -29,8 +30,5 @@ require("mason-tool-installer").setup({
         { "shfmt" },
         -- { "isort" },
         -- { "black" },
-
-        -- NOTE Treesitter
-        { "tree-sitter-cli" },
     },
 })
