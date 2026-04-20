@@ -81,6 +81,9 @@ require("conform").setup({
                 "-style={BasedOnStyle: LLVM, IndentWidth: 4}",
             },
         },
+        shfmt = {
+            prepend_args = { "-i", "4", "-ci", "-bn" },
+        },
     },
 })
 
