@@ -17,3 +17,4 @@ vim.lsp.config("*", {
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("basedpyright")
 vim.lsp.enable("bashls")
+vim.lsp.enable("clangd")
