@@ -14,10 +14,20 @@ vim.lsp.config("*", {
 })
 
 -- INFO: Lsps
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("basedpyright")
-vim.lsp.enable("bashls")
-vim.lsp.enable("clangd")
-vim.lsp.enable("marksman")
-vim.lsp.enable("rust-analyzer")
-vim.lsp.enable("texlab")
+local uv = vim.uv
+local lsp_dir = uv.fs_opendir(vim.fn.stdpath("config") .. "/lsp/")
+
+while true do
+    local lsps = uv.fs_readdir(lsp_dir)
+    if not lsps then
+        break
+    end
+    for _, lsp in ipairs(lsps) do
+        if lsp.type == "file" then
+            local name = lsp.name:gsub("%.lua$", "")
+            vim.lsp.enable(name)
+        end
+    end
+end
+
+uv.fs_closedir(lsp_dir)
